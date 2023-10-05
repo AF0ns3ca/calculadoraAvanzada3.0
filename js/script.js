@@ -5,24 +5,31 @@
 
 let outputPrev = document.getElementById("outputPrev");
 let output = document.getElementById("output");
+let performedOperation = false;
 
 //Divide by one element you have introduced, show the result in the output and add it to the history
-function oneByX() {
+const oneByX = () => {
   const currentValue = outputPrev.textContent;
   if (currentValue === "") {
     currentValue = "";
   } else {
     deleteOutput();
-    appendToOutput("1/" + parseFloat(currentValue));
+    //outputPrev.textContent = "1/" + parseFloat(currentValue);
+    //appendToOutput("1/" + parseFloat(currentValue));
     const result = 1 / parseFloat(currentValue);
-    output.textContent = result.toFixed(10);
+    if (result < 1) {
+      output.textContent = result.toFixed(10);
+    } else {
+      output.textContent = result;
+    }
     addToHistory();
     updateResult(result);
   }
-}
+  performedOperation = true;
+};
 
 //Divide the element you have introduced by a hundered, preparing it to make percents
-function percentage() {
+const percentage = () => {
   const currentValue = outputPrev.textContent;
   if (currentValue === "") {
     currentValue = "";
@@ -30,28 +37,38 @@ function percentage() {
     deleteOutput();
     appendToOutput(parseFloat(currentValue) + "/100");
     const result = parseFloat(currentValue) / 100;
-    output.textContent = result.toFixed(10);
+    if (result < 1) {
+      output.textContent = result.toFixed(10);
+    } else {
+      output.textContent = result;
+    }
     addToHistory();
     updateResult(result);
   }
-}
+  performedOperation = true;
+};
 
 //Do the square of the number you have introduced, show the result in the output and add it to the history
-function square() {
+const square = () => {
   const currentValue = outputPrev.textContent;
   if (currentValue === "") {
     currentValue = "";
   } else {
     appendToOutput("^2");
     const result = parseFloat(currentValue) * parseFloat(currentValue);
-    output.textContent = result;
+    if (result < 1) {
+      output.textContent = result.toFixed(10);
+    } else {
+      output.textContent = result;
+    }
     addToHistory();
     updateResult(result);
   }
+  performedOperation = true;
 }
 
 //Do the square root of the number you have introduced
-function squareRoot() {
+const squareRoot = () => {
   const currentValue = outputPrev.textContent;
   if (currentValue === "") {
     currentValue = "";
@@ -59,51 +76,90 @@ function squareRoot() {
     deleteOutput();
     appendToOutput("sqrt(" + parseFloat(currentValue) + ")");
     const result = Math.sqrt(parseFloat(currentValue));
-    output.textContent = result.toFixed(10);
+    if (result < 1) {
+      output.textContent = result.toFixed(10);
+    } else {
+      output.textContent = result;
+    }
+
     addToHistory();
     updateResult(result);
   }
-}
+  performedOperation = true;
+};
 
 //Convert pi to a number
-function pi() {
+const pi = () => {
+  deleteOutput();
   appendToOutput(Math.PI);
-}
+  performedOperation = true;
+};
 
 //Append to output the values you have entered
-function appendToOutput(value) {
-  if (value === "x") {
-    outputPrev.textContent += "*";
+const appendToOutput = (value) => {
+  if (performedOperation) {
+    if (
+      value == "1" ||
+      value == "2" ||
+      value == "3" ||
+      value == "4" ||
+      value == "5" ||
+      value == "6" ||
+      value == "7" ||
+      value == "8" ||
+      value == "9"
+    ) {
+      performedOperation = false;
+      
+      outputPrev.textContent = "";
+      if (value === "x") {
+        outputPrev.textContent += "*";
+      } else {
+        outputPrev.textContent += value;
+      }
+    } else {
+      performedOperation = false;
+      outputPrev.textContent = output.textContent;
+      if (value === "x") {
+        outputPrev.textContent += "*";
+      } else {
+        outputPrev.textContent += value;
+      }
+    }
   } else {
-    outputPrev.textContent += value;
+    if (value === "x") {
+      outputPrev.textContent += "*";
+    } else {
+      outputPrev.textContent += value;
+    }
   }
-}
+};
 
 //Toggle the sign of the output
-function toggleSign() {
+const toggleSign = () => {
   const result = document.getElementById("outputPrev").textContent;
   if (result[0] === "-") {
     document.getElementById("outputPrev").textContent = result.slice(1);
   } else {
     document.getElementById("outputPrev").textContent = "-" + result;
   }
-}
+};
 
 //Delete everything in the output
-function deleteOutput() {
+const deleteOutput = () => {
   outputPrev.textContent = "";
   output.textContent = "0";
-}
+};
 
 //Delete the last element in the output
-function deleteLast() {
+const deleteLast = () => {
   const prevTrim = outputPrev.textContent.trim();
   const prevFix = prevTrim.slice(0, -1);
   outputPrev.textContent = prevFix;
-}
+};
 
 //Add the value you have introduced to the history
-function addToHistory() {
+const addToHistory = () => {
   const hist = document.getElementById("operationHist");
   const elementHist = document.createElement("li");
   const op = outputPrev.textContent;
@@ -121,30 +177,31 @@ function addToHistory() {
     }
     hist.appendChild(elementHist);
   }
-}
+};
 
 //Delete all the elements in the history
-function deleteHist() {
+const deleteHist = () => {
   const list = document.getElementById("operationHist");
   while (list.firstChild) {
     list.removeChild(list.firstChild);
   }
-}
+};
 
 //update the result in the output when the operation is done
-function updateResult(result) {
+const updateResult = (result) => {
   outputPrev.textContent = result;
   //output.textContent = "";
-}
+};
 
 //calculate the result of the operation you have in the output
-function calculate() {
+const calculate = () => {
   const outputValue = outputPrev.textContent;
   const result = eval(outputValue);
   output.textContent = result;
   addToHistory();
-  updateResult(result);
-}
+  //updateResult(result);
+  performedOperation = true;
+};
 
 //Allows you to use the numpad and keyboard to interact with the calculator
 document.addEventListener("keydown", function (event) {
