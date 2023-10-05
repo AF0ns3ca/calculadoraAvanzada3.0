@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Calculadora Avanzada 2.0</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <div class="title">
+          <h2>Calculadora Avanzada 2.0</h2>
+        </div>
+        <div class="outputView">
+          <p><span class="outputPrev" id="outputPrev"></span></p>
+          <p><span class="output" id="output">0</span></p>
+        </div>
+        <div class="fila">
+          <div class="action" onclick="percentage()">%</div>
+          <div class="action" onclick="pi()">π</div>
+          <div class="action" onclick="deleteOutput()">C</div>
+          <div class="action" onclick="deleteLast()">DEL</div>
+        </div>
+        <div class="fila">
+          <div class="action" onclick="oneByX()">1/x</div>
+          <div class="action" onclick="square()">x^2</div>
+          <div class="action" onclick="squareRoot()">sqrt(x)</div>
+          <div class="action" onclick="appendToOutput(' / ')">/</div>
+        </div>
+        <div class="fila">
+          <div class="number" onclick="appendToOutput('7')">7</div>
+          <div class="number" onclick="appendToOutput('8')">8</div>
+          <div class="number" onclick="appendToOutput('9')">9</div>
+          <div class="action" onclick="appendToOutput(' * ')">x</div>
+        </div>
+        <div class="fila">
+          <div class="number" onclick="appendToOutput('4')">4</div>
+          <div class="number" onclick="appendToOutput('5')">5</div>
+          <div class="number" onclick="appendToOutput('6')">6</div>
+          <div class="action" onclick="appendToOutput(' - ')">-</div>
+        </div>
+        <div class="fila">
+          <div class="number" onclick="appendToOutput('1')">1</div>
+          <div class="number" onclick="appendToOutput('2')">2</div>
+          <div class="number" onclick="appendToOutput('3')">3</div>
+          <div class="action" onclick="appendToOutput(' + ')">+</div>
+        </div>
+        <div class="fila">
+          <div class="action" onclick="toggleSign()">+/-</div>
+          <div class="number" onclick="appendToOutput('0')">0</div>
+          <div class="number" onclick="appendToOutput('.')">.</div>
+          <div class="equal" onclick="calculate()">=</div>
+        </div>
+      </div>
+      <div class="hist">
+        <div class="listOps">
+          <h3 class="title">Historial</h3>
+          <ul id="operationHist"></ul>
+        </div>
+        <div class="deleteHist" onclick="deleteHist()">Borrar Historial</div>
+      </div>
+      <script src="js/script.js"></script>
+    </div>
+  </body>
+</html>
