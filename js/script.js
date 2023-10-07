@@ -162,6 +162,8 @@ const addToHistory = () => {
         <span>${op} = </span>
         <br> 
         <span>${res}</span>
+        <br> 
+        <br> 
       </div>
     `;
     if (hist.children.length >= 5) {
