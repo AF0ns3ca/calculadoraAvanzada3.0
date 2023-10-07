@@ -1,6 +1,6 @@
 /**
- * Author: Álvaro Fonseca Hernández
- * GitHub: Enlace proyecto de GitHub
+ * @author Álvaro Fonseca Hernández
+ * @GitHub https://github.com/AF0ns3ca/calculadoraAvanzada3.0.git
  */
 
 let outputPrev = document.getElementById("outputPrev");
