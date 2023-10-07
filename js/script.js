@@ -7,23 +7,32 @@ let outputPrev = document.getElementById("outputPrev");
 let output = document.getElementById("output");
 let performedOperation = false;
 
+//Returns true if the value is empty or is not a number
+const emptyValue = (value) => {
+  if (value === "") {
+    return true;
+  } else return false;
+};
+
+const fixDecimal = (value) => {
+  if (value.toString().length > 10) {
+    return value.toFixed(10);
+  } else return value;
+};
+
 //Divide by one element you have introduced, show the result in the output and add it to the history
 const oneByX = () => {
+  //if the element shown in output is not 0, outputPrev changes to the value shown in output to do the operation square in teh new value
+  if (output.textContent !== "0" && performedOperation) {
+    outputPrev.textContent = output.textContent;
+  }
   const currentValue = outputPrev.textContent;
-  if (currentValue === "") {
-    currentValue = "";
-  } else {
+  if (!emptyValue(currentValue)) {
     deleteOutput();
-    //outputPrev.textContent = "1/" + parseFloat(currentValue);
-    //appendToOutput("1/" + parseFloat(currentValue));
+    appendToOutput("1/" + currentValue);
     const result = 1 / parseFloat(currentValue);
-    if (result < 1) {
-      output.textContent = result.toFixed(10);
-    } else {
-      output.textContent = result;
-    }
+    output.textContent = fixDecimal(result);
     addToHistory();
-    updateResult(result);
   }
   performedOperation = true;
 };
@@ -37,111 +46,93 @@ const percentage = () => {
     deleteOutput();
     appendToOutput(parseFloat(currentValue) + "/100");
     const result = parseFloat(currentValue) / 100;
-    if (result < 1) {
-      output.textContent = result.toFixed(10);
-    } else {
-      output.textContent = result;
-    }
+    output.textContent = fixDecimal(result);
     addToHistory();
-    updateResult(result);
   }
   performedOperation = true;
 };
 
 //Do the square of the number you have introduced, show the result in the output and add it to the history
 const square = () => {
+  //if the element shown in output is not 0, outputPrev changes to the value shown in output to do the operation square in teh new value
+  if (output.textContent !== "0" && performedOperation) {
+    outputPrev.textContent = output.textContent;
+  }
   const currentValue = outputPrev.textContent;
-  if (currentValue === "") {
-    currentValue = "";
-  } else {
-    appendToOutput("^2");
-    const result = parseFloat(currentValue) * parseFloat(currentValue);
-    if (result < 1) {
-      output.textContent = result.toFixed(10);
-    } else {
-      output.textContent = result;
-    }
+  if (!emptyValue(currentValue)) {
+    appendToOutput("²");
+    console.log(currentValue);
+    const result = parseFloat(currentValue) ** 2;
+    output.textContent = fixDecimal(result);
     addToHistory();
-    updateResult(result);
   }
   performedOperation = true;
-}
+};
 
 //Do the square root of the number you have introduced
 const squareRoot = () => {
+  //if the element shown in output is not 0, outputPrev changes to the value shown in output to do the operation square in teh new value
+  if (output.textContent !== "0" && performedOperation) {
+    outputPrev.textContent = output.textContent;
+  }
   const currentValue = outputPrev.textContent;
-  if (currentValue === "") {
-    currentValue = "";
-  } else {
-    deleteOutput();
-    appendToOutput("sqrt(" + parseFloat(currentValue) + ")");
+  if (!emptyValue(currentValue)) {
+    /*outputPrev.textContent = ""
+    appendToOutput("√" + currentValue);*/
+    outputPrev.textContent = "√" + currentValue;
+    console.log(currentValue);
     const result = Math.sqrt(parseFloat(currentValue));
-    if (result < 1) {
-      output.textContent = result.toFixed(10);
-    } else {
-      output.textContent = result;
-    }
-
+    output.textContent = fixDecimal(result);
     addToHistory();
-    updateResult(result);
   }
   performedOperation = true;
 };
 
 //Convert pi to a number
 const pi = () => {
-  deleteOutput();
   appendToOutput(Math.PI);
+  output.textContent = Math.PI;
   performedOperation = true;
 };
 
 //Append to output the values you have entered
 const appendToOutput = (value) => {
+  //If you introduce a number after an operation is made the output goes empty and a new operation can be performed
   if (performedOperation) {
-    if (
-      value == "1" ||
-      value == "2" ||
-      value == "3" ||
-      value == "4" ||
-      value == "5" ||
-      value == "6" ||
-      value == "7" ||
-      value == "8" ||
-      value == "9"
-    ) {
+    //parse the value which is introduced and use it for the condition
+    if (parseInt(value) >= 1 && parseInt(value) <= 9) {
+      //The flag turns false and a new operation can be made with the new input
       performedOperation = false;
-      
       outputPrev.textContent = "";
-      if (value === "x") {
-        outputPrev.textContent += "*";
-      } else {
-        outputPrev.textContent += value;
-      }
+      outputPrev.textContent += value;
     } else {
       performedOperation = false;
       outputPrev.textContent = output.textContent;
-      if (value === "x") {
-        outputPrev.textContent += "*";
-      } else {
-        outputPrev.textContent += value;
-      }
-    }
-  } else {
-    if (value === "x") {
-      outputPrev.textContent += "*";
-    } else {
       outputPrev.textContent += value;
     }
+  } else {
+    outputPrev.textContent += value;
   }
 };
 
 //Toggle the sign of the output
-const toggleSign = () => {
-  const result = document.getElementById("outputPrev").textContent;
-  if (result[0] === "-") {
-    document.getElementById("outputPrev").textContent = result.slice(1);
-  } else {
-    document.getElementById("outputPrev").textContent = "-" + result;
+const changeSign = () => {
+  if (outputPrev.textContent.length !== 0) {
+    if (!performedOperation) {
+      const result = outputPrev.textContent;
+      if (result[0] === "-") {
+        outputPrev.textContent = result.slice(1);
+      } else {
+        outputPrev.textContent = "-" + result;
+      }
+    } else {
+      const result = output.textContent;
+      if (result[0] === "-") {
+        output.textContent = result.slice(1);
+      } else {
+        output.textContent = "-" + result;
+      }
+    }
   }
 };
 
@@ -149,6 +140,7 @@ const toggleSign = () => {
 const deleteOutput = () => {
   outputPrev.textContent = "";
   output.textContent = "0";
+  performedOperation = false;
 };
 
 //Delete the last element in the output
@@ -188,7 +180,7 @@ const deleteHist = () => {
 };
 
 //update the result in the output when the operation is done
-const updateResult = (result) => {
+const updateResult = () => {
   outputPrev.textContent = result;
   //output.textContent = "";
 };
@@ -196,8 +188,10 @@ const updateResult = (result) => {
 //calculate the result of the operation you have in the output
 const calculate = () => {
   const outputValue = outputPrev.textContent;
+  console.log(outputValue);
   const result = eval(outputValue);
-  output.textContent = result;
+  console.log(eval(outputValue));
+  output.textContent = fixDecimal(result);
   addToHistory();
   //updateResult(result);
   performedOperation = true;

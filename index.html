@@ -10,48 +10,52 @@
     <div class="container">
       <div class="wrapper">
         <div class="title">
-          <h2>Calculadora Avanzada 3.0</h2>
+          <span class="ham">&#9776;</span>
+          <span class="Chead">Estándar</span>
         </div>
         <div class="outputView">
-          <p><span class="outputPrev" id="outputPrev"></span></p>
-          <p><span class="output" id="output">0</span></p>
+          <span class="outputPrev" id="outputPrev"></span>
+          <span class="output" id="output">0</span>
         </div>
-        <div class="fila">
-          <div class="action" onclick="percentage()">%</div>
-          <div class="action" onclick="pi()">π</div>
-          <div class="action" onclick="deleteOutput()">C</div>
-          <div class="action" onclick="deleteLast()">DEL</div>
+        <div class="pad">
+          <div class="fila">
+            <div class="action" id="percentage" onclick="percentage()">%</div>
+            <div class="action" id="pi" onclick="pi()">π</div>
+            <div class="action" id="delOutput" onclick="deleteOutput()">C</div>
+            <div class="action" id="delLast" onclick="deleteLast()">DEL</div>
+          </div>
+          <div class="fila">
+            <div class="action" id="oneByX" onclick="oneByX()">1/x</div>
+            <div class="action" id="square" onclick="square()">X²</div>
+            <div class="action" id="sqrt" onclick="squareRoot()">√x</div>
+            <div class="action" id="divide" onclick="appendToOutput(' / ')">÷</div>
+          </div>
+          <div class="fila">
+            <div class="number" id="seven" onclick="appendToOutput('7')">7</div>
+            <div class="number" id="eight" onclick="appendToOutput('8')">8</div>
+            <div class="number" id="nine" onclick="appendToOutput('9')">9</div>
+            <div class="action" id="multiply" onclick="appendToOutput(' * ')">x</div>
+          </div>
+          <div class="fila">
+            <div class="number" id="four" onclick="appendToOutput('4')">4</div>
+            <div class="number" id="five" onclick="appendToOutput('5')">5</div>
+            <div class="number" id="six" onclick="appendToOutput('6')">6</div>
+            <div class="action" id="minus" onclick="appendToOutput(' - ')">-</div>
+          </div>
+          <div class="fila">
+            <div class="number" id="one" onclick="appendToOutput('1')">1</div>
+            <div class="number" id="two" onclick="appendToOutput('2')">2</div>
+            <div class="number" id="three" onclick="appendToOutput('3')">3</div>
+            <div class="action" id="plus" onclick="appendToOutput(' + ')">+</div>
+          </div>
+          <div class="fila">
+            <div class="action" id="changeSign" onclick="changeSign()">+/-</div>
+            <div class="number" id="zero" onclick="appendToOutput('0')">0</div>
+            <div class="number" id="decimal" onclick="appendToOutput('.')">.</div>
+            <div class="equal" id="equal" onclick="calculate()">=</div>
+          </div>
         </div>
-        <div class="fila">
-          <div class="action" onclick="oneByX()">1/x</div>
-          <div class="action" onclick="square()">X²</div>
-          <div class="action" onclick="squareRoot()">√x</div>
-          <div class="action" onclick="appendToOutput(' / ')">÷</div>
-        </div>
-        <div class="fila">
-          <div class="number" onclick="appendToOutput('7')">7</div>
-          <div class="number" onclick="appendToOutput('8')">8</div>
-          <div class="number" onclick="appendToOutput('9')">9</div>
-          <div class="action" onclick="appendToOutput(' * ')">x</div>
-        </div>
-        <div class="fila">
-          <div class="number" onclick="appendToOutput('4')">4</div>
-          <div class="number" onclick="appendToOutput('5')">5</div>
-          <div class="number" onclick="appendToOutput('6')">6</div>
-          <div class="action" onclick="appendToOutput(' - ')">-</div>
-        </div>
-        <div class="fila">
-          <div class="number" onclick="appendToOutput('1')">1</div>
-          <div class="number" onclick="appendToOutput('2')">2</div>
-          <div class="number" onclick="appendToOutput('3')">3</div>
-          <div class="action" onclick="appendToOutput(' + ')">+</div>
-        </div>
-        <div class="fila">
-          <div class="action" onclick="toggleSign()">+/-</div>
-          <div class="number" onclick="appendToOutput('0')">0</div>
-          <div class="number" onclick="appendToOutput('.')">.</div>
-          <div class="equal" onclick="calculate()">=</div>
-        </div>
+        
       </div>
       <div class="hist">
         <div class="listOps">
