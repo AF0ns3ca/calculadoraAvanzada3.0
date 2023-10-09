@@ -50,6 +50,7 @@
 .windowBtns {
   width: 100%;
   color: #d3d3d3;
+  
 }
 
 .btnRow {
@@ -64,12 +65,15 @@
 
 .btnX {
   padding: 10px;
+  border-radius: 10px;
   &:hover {
-    background-color: rgba(255, 0, 0, 0.333);
+    background-color: rgba(255, 0, 0, 0.9);
   }
 }
+
 .btnExpand, .btnMinimize {
   padding: 10px;
+  border-radius: 10px;
   &:hover {
     background-color: #46434379;
   }
@@ -195,7 +199,7 @@
   cursor: pointer;
   transition: 0.3s;
   &:hover {
-    background-color: rgb(127, 132, 132);
+    background-color: rgba(127, 132, 132, 0.4);
   }
 }
 
