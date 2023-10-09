@@ -14,6 +14,7 @@ const emptyValue = (value) => {
   } else return false;
 };
 
+//If value's length is greater than 10, it will be fixed to 10
 const fixDecimal = (value) => {
   if (value.toString().length > 10) {
     return value.toFixed(10);
@@ -159,9 +160,7 @@ const addToHistory = () => {
   if (op !== "") {
     elementHist.innerHTML = `
       <div>
-        <span>${op} = </span>
-        <br> 
-        <span>${res}</span>
+        <span>→ ${op} = ${res}</span>
         <br> 
         <br> 
       </div>

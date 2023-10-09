@@ -9,16 +9,92 @@
   <body>
     <div class="container">
       <div class="wrapper">
+        <div class="windowSup">
+          <div class="windowActions">
+            <img
+              class="calculatorIMG"
+              src="assets/calculator.png"
+              alt="calculator"
+            />
+            <span>Calculadora</span>
+          </div>
+          <div class="windowBtns">
+            <div class="btnRow">
+              <span class="btnMinimize">_</span>
+              <span class="btnExpand">☐</span>
+              <span class="btnX">✕</span>
+            </div>
+           
+          </div>
+        </div>
         <div class="title">
-          <span class="ham">&#9776;</span>
-          <span class="Chead">Estándar</span>
-          <svg class="histIcon" id="histIcon" onclick="hideHist()" width="100px" height="100px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#d3d3d3"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M5.07868 5.06891C8.87402 1.27893 15.0437 1.31923 18.8622 5.13778C22.6824 8.95797 22.7211 15.1313 18.9262 18.9262C15.1312 22.7211 8.95793 22.6824 5.13774 18.8622C2.87389 16.5984 1.93904 13.5099 2.34047 10.5812C2.39672 10.1708 2.775 9.88377 3.18537 9.94002C3.59575 9.99627 3.88282 10.3745 3.82658 10.7849C3.4866 13.2652 4.27782 15.881 6.1984 17.8016C9.44288 21.0461 14.6664 21.0646 17.8655 17.8655C21.0646 14.6664 21.046 9.44292 17.8015 6.19844C14.5587 2.95561 9.33889 2.93539 6.13935 6.12957L6.88705 6.13333C7.30126 6.13541 7.63535 6.47288 7.63327 6.88709C7.63119 7.3013 7.29372 7.63539 6.87951 7.63331L4.33396 7.62052C3.92269 7.61845 3.58981 7.28556 3.58774 6.8743L3.57495 4.32874C3.57286 3.91454 3.90696 3.57707 4.32117 3.57498C4.73538 3.5729 5.07285 3.907 5.07493 4.32121L5.07868 5.06891ZM11.9999 7.24992C12.4141 7.24992 12.7499 7.58571 12.7499 7.99992V11.6893L15.0302 13.9696C15.3231 14.2625 15.3231 14.7374 15.0302 15.0302C14.7373 15.3231 14.2624 15.3231 13.9696 15.0302L11.2499 12.3106V7.99992C11.2499 7.58571 11.5857 7.24992 11.9999 7.24992Z" fill="#d3d3d3"></path> </g></svg>
+          <div class="mainTitle">
+            <span class="ham">&#9776;</span>
+            <span class="Chead">Estándar</span>
+            <svg
+              class="expandIcon"
+              fill="#d3d3d3"
+              width="100px"
+              height="100px"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <path
+                  d="M2,3V21a1,1,0,0,0,1,1H21a1,1,0,0,0,1-1V3a1,1,0,0,0-1-1H3A1,1,0,0,0,2,3ZM4,4H20V20H10V15a1,1,0,0,0-1-1H4ZM4,16H8v4H4Zm7.293-3.293a1,1,0,0,1,0-1.414L14.086,8.5H13a1,1,0,0,1,0-2h3.5a1,1,0,0,1,.923.618A1.01,1.01,0,0,1,17.5,7.5V11a1,1,0,0,1-2,0V9.914l-2.793,2.793a1,1,0,0,1-1.414,0Z"
+                ></path>
+              </g>
+            </svg>
+          </div>
+          <svg
+            class="histIcon"
+            id="histIcon"
+            onclick="hideHist()"
+            width="100px"
+            height="100px"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            stroke="#d3d3d3"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M5.07868 5.06891C8.87402 1.27893 15.0437 1.31923 18.8622 5.13778C22.6824 8.95797 22.7211 15.1313 18.9262 18.9262C15.1312 22.7211 8.95793 22.6824 5.13774 18.8622C2.87389 16.5984 1.93904 13.5099 2.34047 10.5812C2.39672 10.1708 2.775 9.88377 3.18537 9.94002C3.59575 9.99627 3.88282 10.3745 3.82658 10.7849C3.4866 13.2652 4.27782 15.881 6.1984 17.8016C9.44288 21.0461 14.6664 21.0646 17.8655 17.8655C21.0646 14.6664 21.046 9.44292 17.8015 6.19844C14.5587 2.95561 9.33889 2.93539 6.13935 6.12957L6.88705 6.13333C7.30126 6.13541 7.63535 6.47288 7.63327 6.88709C7.63119 7.3013 7.29372 7.63539 6.87951 7.63331L4.33396 7.62052C3.92269 7.61845 3.58981 7.28556 3.58774 6.8743L3.57495 4.32874C3.57286 3.91454 3.90696 3.57707 4.32117 3.57498C4.73538 3.5729 5.07285 3.907 5.07493 4.32121L5.07868 5.06891ZM11.9999 7.24992C12.4141 7.24992 12.7499 7.58571 12.7499 7.99992V11.6893L15.0302 13.9696C15.3231 14.2625 15.3231 14.7374 15.0302 15.0302C14.7373 15.3231 14.2624 15.3231 13.9696 15.0302L11.2499 12.3106V7.99992C11.2499 7.58571 11.5857 7.24992 11.9999 7.24992Z"
+                fill="#d3d3d3"
+              ></path>
+            </g>
+          </svg>
         </div>
         <div class="outputView">
           <span class="outputPrev" id="outputPrev"></span>
           <span class="output" id="output">0</span>
         </div>
         <div class="pad">
+          <div class="filaSup">
+            <div class="special">MC</div>
+            <div class="special">MR</div>
+            <div class="special">M</div>
+            <div class="special" id="seven" onclick="appendToOutput('(')">
+              (
+            </div>
+            <div class="special" id="seven" onclick="appendToOutput(')')">
+              )
+            </div>
+          </div>
           <div class="fila">
             <div class="action" id="percentage" onclick="percentage()">%</div>
             <div class="action" id="pi" onclick="pi()">π</div>
@@ -29,36 +105,46 @@
             <div class="action" id="oneByX" onclick="oneByX()">1/x</div>
             <div class="action" id="square" onclick="square()">X²</div>
             <div class="action" id="sqrt" onclick="squareRoot()">√x</div>
-            <div class="action" id="divide" onclick="appendToOutput(' / ')">÷</div>
+            <div class="action" id="divide" onclick="appendToOutput(' / ')">
+              ÷
+            </div>
           </div>
           <div class="fila">
             <div class="number" id="seven" onclick="appendToOutput('7')">7</div>
             <div class="number" id="eight" onclick="appendToOutput('8')">8</div>
             <div class="number" id="nine" onclick="appendToOutput('9')">9</div>
-            <div class="action" id="multiply" onclick="appendToOutput(' * ')">x</div>
+            <div class="action" id="multiply" onclick="appendToOutput(' * ')">
+              x
+            </div>
           </div>
           <div class="fila">
             <div class="number" id="four" onclick="appendToOutput('4')">4</div>
             <div class="number" id="five" onclick="appendToOutput('5')">5</div>
             <div class="number" id="six" onclick="appendToOutput('6')">6</div>
-            <div class="action" id="minus" onclick="appendToOutput(' - ')">-</div>
+            <div class="action" id="minus" onclick="appendToOutput(' - ')">
+              -
+            </div>
           </div>
           <div class="fila">
             <div class="number" id="one" onclick="appendToOutput('1')">1</div>
             <div class="number" id="two" onclick="appendToOutput('2')">2</div>
             <div class="number" id="three" onclick="appendToOutput('3')">3</div>
-            <div class="action" id="plus" onclick="appendToOutput(' + ')">+</div>
+            <div class="action" id="plus" onclick="appendToOutput(' + ')">
+              +
+            </div>
           </div>
           <div class="fila">
             <div class="action" id="changeSign" onclick="changeSign()">+/-</div>
             <div class="number" id="zero" onclick="appendToOutput('0')">0</div>
-            <div class="number" id="decimal" onclick="appendToOutput('.')">.</div>
+            <div class="number" id="decimal" onclick="appendToOutput('.')">
+              .
+            </div>
             <div class="equal" id="equal" onclick="calculate()">=</div>
           </div>
         </div>
       </div>
       <div class="hist">
-        <h3 class="title">Historial</h3>
+        <div class="histTitle"><h3>Historial</h3></div>
         <div class="listOps">
           <ul id="operationHist"></ul>
         </div>
