@@ -55,7 +55,7 @@ const percentage = () => {
 //Do the square of the number you have introduced, show the result in the output and add it to the history
 const square = () => {
   //if the element shown in output is not 0, outputPrev changes to the value shown in output to do the operation square in teh new value
-  if (output.textContent !== "0" && performedOperation) {
+  if (performedOperation) {
     outputPrev.textContent = output.textContent;
   }
   const currentValue = outputPrev.textContent;
@@ -198,6 +198,11 @@ const calculate = () => {
   //updateResult(result);
   performedOperation = true;
 };
+
+/*const hideHist = () => {
+  const hist = document.getElementById("hist");
+  hist.style.display = "none";
+}*/
 
 //Allows you to use the numpad and keyboard to interact with the calculator
 document.addEventListener("keydown", function (event) {

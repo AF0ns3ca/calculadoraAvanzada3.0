@@ -31,15 +31,33 @@
 .title {
   width: 100%;
   font-size: 18px;
-  flex-direction: row;
   justify-content: space-around;
   color: #d3d3d3;
-  margin: 0 10px 0 10px;
+  margin: 10px 10px 0 20px;
   margin-bottom: 10px;
 }
 
 .ham {
   margin-right: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    font-size: larger;
+    background-color: rgb(49, 50, 50);
+  }
+}
+
+.histIcon{
+  width: 30px;
+  height: 35px;
+  float: right;
+  margin: 0 10px 0 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    background-color: rgb(49, 50, 50);
+  }
 }
 
 .outputView {
