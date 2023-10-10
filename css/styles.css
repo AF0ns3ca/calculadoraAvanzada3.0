@@ -14,7 +14,8 @@
   justify-content: center;
   color: #333333;
   font-family: sans-serif;
-  background-image: url("/assets/wallpaper.jpg");
+  background-color: rgb(38, 38, 39);
+  background-image: url("/assets/wallpaper.png");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -118,8 +119,8 @@
 }
 
 .histIcon {
-  width: 25px;
-  height: 25px;
+  width: 35px;
+  height: 35px;
   float: right;
   margin: 0 10px 0 20px;
   border-radius: 5px;
@@ -234,15 +235,17 @@
   padding: 20px 20px 20px 20px;
   background-color: rgb(26, 26, 26);
   color: whitesmoke;
-  display: flex;
+  display: none;
   flex-direction: column;
   border-radius: 1%;
   justify-content: space-between;
   font-family: sans-serif;
-  visibility: hidden;
-  transition-duration: 0s;
+  transition: 0s;
 }
 
+.visible {
+  display: flex;
+}
 
 .histTitle {
   display: flex;
@@ -260,9 +263,7 @@
   margin: 10px;
   padding: 3px 3px 3px 3px;
   border-radius: 3px;
-  transition: 0.3s;
-  visibility: hidden;
-  transition-duration: 0s;
+  transition: 0s;
   &:hover {
     background-color: rgb(127, 132, 132);
   }

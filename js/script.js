@@ -201,14 +201,7 @@ const calculate = () => {
 //When the icon hist is clicked, it will show the history or it will hide it
 const hideHist = () => {
   const hist = document.getElementById("hist");
-  const btnhist = document.getElementById("btnHist");
-  if (hist.style.visibility === "hidden") {
-    btnhist.style.visibility = "visible";
-    hist.style.visibility = "visible";
-  } else {
-    btnhist.style.visibility = "hidden";
-    hist.style.visibility = "hidden";
-  }
+  hist.classList.toggle("visible");
 }
 
 //Allows you to use the numpad and keyboard to interact with the calculator
@@ -255,6 +248,12 @@ document.addEventListener("keydown", function (event) {
       break;
     case "/":
       appendToOutput(" / ");
+      break;
+      case "(":
+      appendToOutput(" ( ");
+      break;
+      case ")":
+      appendToOutput(" ) ");
       break;
     case "Enter":
       calculate();
