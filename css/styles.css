@@ -20,6 +20,7 @@
 }
 
 .wrapper {
+  position: relative;
   width: 391px;
   height: 534px;
   display: flex;
@@ -225,10 +226,11 @@
 }
 
 .hist {
+  position: absolute;
+  bottom: 0;
   width: 391px;
-  height: 534px;
+  height: 350px;
   min-height: 300px;
-  margin: 20px 20px 20px 20px;
   padding: 20px 20px 20px 20px;
   background-color: rgb(26, 26, 26);
   color: whitesmoke;
@@ -237,7 +239,7 @@
   border-radius: 1%;
   justify-content: space-between;
   font-family: sans-serif;
-  visibility: visible;
+  visibility: hidden;
   transition-duration: 0s;
 }
 
@@ -259,8 +261,7 @@
   padding: 3px 3px 3px 3px;
   border-radius: 3px;
   transition: 0.3s;
-  visibility: visible;
-  
+  visibility: hidden;
   transition-duration: 0s;
   &:hover {
     background-color: rgb(127, 132, 132);
