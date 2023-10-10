@@ -237,7 +237,10 @@
   border-radius: 1%;
   justify-content: space-between;
   font-family: sans-serif;
+  visibility: visible;
+  transition-duration: 0s;
 }
+
 
 .histTitle {
   display: flex;
@@ -256,9 +259,13 @@
   padding: 3px 3px 3px 3px;
   border-radius: 3px;
   transition: 0.3s;
+  visibility: visible;
+  
+  transition-duration: 0s;
   &:hover {
     background-color: rgb(127, 132, 132);
   }
+  
 }
 
 .listOps {
